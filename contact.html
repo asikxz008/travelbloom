@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Свяжитесь с TravelBloom с помощью формы обратной связи."><title>Контакты — TravelBloom</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><script src="app.js" defer></script></head>
+<body data-page="contact">
+  <a class="skip-link" href="#main">Перейти к содержимому</a><header id="site-header"></header>
+  <main id="main" class="contact-page">
+    <section class="contact-copy"><p class="eyebrow">КОНТАКТЫ / CONTACT US</p><h1>Каждое открытие<br>начинается с <em>«привет».</em></h1><p class="lead">Есть идея, вопрос или любимое место?<br>Расскажите нам о нём.</p><div class="contact-visual"><img src="bora-bora.jpg" alt="Бирюзовая лагуна и гора на острове Бора-Бора"><span>До новых берегов <span aria-hidden="true">↗</span></span></div></section>
+    <section class="contact-panel" aria-labelledby="form-title"><p class="eyebrow">ДАВАЙТЕ ПОГОВОРИМ</p><h2 id="form-title">Напишите нам</h2><p class="form-intro">Заполните форму, чтобы подготовить сообщение.</p>
+      <form id="contact-form"><label for="name">Ваше имя <span aria-hidden="true">*</span></label><input id="name" name="name" autocomplete="name" placeholder="Как к вам обращаться?" required maxlength="100"><label for="email">Электронная почта <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="254"><label for="message">Сообщение <span aria-hidden="true">*</span></label><textarea id="message" name="message" rows="5" placeholder="Расскажите о своей идее или задайте вопрос…" required minlength="10" maxlength="3000"></textarea><button class="button dark" type="submit">Подготовить сообщение <span aria-hidden="true">↗</span></button><p class="form-note">Учебная форма. Данные не отправляются и не сохраняются на сервере.</p><p id="form-status" role="status" aria-live="polite"></p></form>
+      <div id="message-preview" hidden><h3>Ваше сообщение</h3><p id="preview-sender"></p><p id="preview-body"></p><button class="text-link" id="edit-message" type="button">Вернуться к редактированию <span aria-hidden="true">↗</span></button></div>
+    </section>
+  </main><footer id="site-footer"></footer>
+</body></html>

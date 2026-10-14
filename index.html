@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TravelBloom — идеи для путешествий. Найдите пляжи, храмы и города по своему настроению.">
+  <title>TravelBloom — найдите своё путешествие</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <header id="site-header"></header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-image" src="bali.jpg" alt="Зелёные рисовые террасы и пальмы на Бали" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow light"><span class="small-line"></span> МИР БЛИЖЕ, ЧЕМ КАЖЕТСЯ</p>
+        <h1 id="hero-title">Впереди<br>целый <em>мир.</em></h1>
+        <p class="hero-description">От тихих лагун до древних храмов — найдите место, которое станет вашей следующей историей. TravelBloom поможет выбрать, куда отправиться.</p>
+        <button class="button coral" id="explore-button" type="button">Найти вдохновение <span aria-hidden="true">↗</span></button>
+        <div class="hero-note"><span class="compass" aria-hidden="true">✧</span><span>Меньше планов.<br>Больше открытий.</span></div>
+      </div>
+      <div id="featured-place" class="featured-place"><span class="location-dot" aria-hidden="true"></span><div><span class="eyebrow light">В КАДРЕ</span><p>Бали, Индонезия</p></div><span aria-hidden="true">↗</span></div>
+      <aside id="results" class="results" aria-labelledby="results-heading" hidden>
+        <div class="results-header"><div><p class="eyebrow">ВАШЕ СЛЕДУЮЩЕЕ ОТКРЫТИЕ</p><h2 id="results-heading">Рекомендации</h2></div><button id="close-results" class="icon-button" type="button" aria-label="Закрыть результаты">×</button></div>
+        <p id="result-status" class="result-status" role="status" aria-live="polite"></p>
+        <div id="result-cards"></div>
+      </aside>
+    </section>
+    <section class="discover" id="discover" aria-labelledby="discover-title">
+      <div class="discover-intro"><p class="eyebrow">ВЫБЕРИТЕ НАСТРОЕНИЕ</p><h2 id="discover-title">Куда вас тянет?</h2></div>
+      <button class="category" data-query="beaches" type="button"><span class="category-icon" aria-hidden="true">☀</span><span><strong>К океану</strong><small>Пляжи и бирюзовые лагуны</small></span><span class="category-arrow" aria-hidden="true">↗</span></button>
+      <button class="category" data-query="temples" type="button"><span class="category-icon" aria-hidden="true">⌂</span><span><strong>К истокам</strong><small>Храмы и культурные открытия</small></span><span class="category-arrow" aria-hidden="true">↗</span></button>
+      <button class="category" data-query="countries" type="button"><span class="category-icon" aria-hidden="true">◎</span><span><strong>В новый город</strong><small>Страны и городские маршруты</small></span><span class="category-arrow" aria-hidden="true">↗</span></button>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <dialog id="place-dialog"><button class="icon-button dialog-close" type="button" aria-label="Закрыть описание">×</button><img id="dialog-image" src="bali.jpg" alt=""><div class="dialog-body"><p id="dialog-category" class="eyebrow"></p><h2 id="dialog-title"></h2><p id="dialog-description"></p><p id="dialog-tip" class="travel-tip"></p><a id="dialog-map" class="button dark" target="_blank" rel="noopener noreferrer">Открыть карту <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>
