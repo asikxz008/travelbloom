@@ -1,14 +1,9 @@
 'use strict';
 
 const page = document.body.dataset.page;
-const navLinks = [['home', 'index.html', 'Главная'], ['about', 'about.html', 'О нас'], ['contact', 'contact.html', 'Контакты']];
-document.getElementById('site-header').innerHTML = `
-  <div class="nav-shell">
-    <a class="brand" href="index.html" aria-label="TravelBloom — главная"><img src="favicon.svg" width="34" height="34" alt=""><span>Travel<span class="brand-light">Bloom</span><span class="brand-dot">.</span></span></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">☰</button>
-    <nav id="main-nav" aria-label="Основная навигация">${navLinks.map(([key, url, label]) => `<a href="${url}"${key === page ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>
-    <form class="search-form" id="search-form" role="search"><label class="sr-only" for="search-input">Поиск направлений</label><span class="search-icon" aria-hidden="true">⌕</span><input id="search-input" name="q" type="search" placeholder="Пляжи, храмы, страны…" maxlength="100" autocomplete="off"><button class="search-submit" type="submit">Поиск</button><button class="search-clear" type="button" id="clear-button">Сбросить</button></form>
-  </div>`;
+const activePage = {home: 'index.html', about: 'about.html', contact: 'contact.html'}[page];
+const activeLink = document.querySelector('#main-nav a[href="' + activePage + '"]');
+if (activeLink) activeLink.setAttribute('aria-current', 'page');
 document.getElementById('site-footer').innerHTML = `<p><strong>TravelBloom.</strong> Начните с любопытства.</p><div><a href="about.html">О проекте</a><a href="contact.html">Связаться</a><span>Учебный проект · 2026</span></div>`;
 
 const menu = document.querySelector('.menu-toggle');
@@ -113,7 +108,17 @@ async function runSearch(rawQuery) {
     const matchedCountry = data.countries.find(country => country.keywords.some(keyword => normalize(keyword) === query) || normalize(country.name) === query);
     const countryCities = data.countries.flatMap(country => country.cities.map(city => ({...city, countryKeywords: country.keywords, category: 'countries'})));
     const all = [...data.beaches.map(item => ({...item, category: 'beaches'})), ...data.temples.map(item => ({...item, category: 'temples'})), ...countryCities];
-    currentResults = category ? all.filter(item => item.category === category) : matchedCountry ? matchedCountry.cities.map(city => ({...city, category: 'countries'})) : all.filter(item => {
+    const countryCards = data.countries.map(country => ({
+      ...country.cities[0],
+      id: 'country-' + country.cities[0].id,
+      name: country.name,
+      location: country.cities.map(city => city.name).join(' · '),
+      description: country.description,
+      tip: country.tip,
+      mapQuery: country.mapQuery,
+      category: 'countries'
+    }));
+    currentResults = category === 'countries' ? countryCards : category ? all.filter(item => item.category === category) : matchedCountry ? matchedCountry.cities.map(city => ({...city, category: 'countries'})) : all.filter(item => {
       const searchable = [item.name, item.location, ...item.keywords, ...(item.countryKeywords || [])].map(normalize);
       return searchable.some(text => text.includes(query));
     });

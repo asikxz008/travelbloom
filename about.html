@@ -2,7 +2,29 @@
 <html lang="ru">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="О TravelBloom: наша идея и команда учебного проекта."><title>О нас — TravelBloom</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><script src="app.js" defer></script></head>
 <body data-page="about">
-  <a class="skip-link" href="#main">Перейти к содержимому</a><header id="site-header"></header>
+  <a class="skip-link" href="#main">Перейти к содержимому</a><header id="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="index.html" aria-label="TravelBloom — главная">
+      <img src="favicon.svg" width="34" height="34" alt="">
+      <span>Travel<span class="brand-light">Bloom</span><span class="brand-dot">.</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false"
+      aria-controls="main-nav" aria-label="Открыть меню">☰</button>
+    <nav id="main-nav" aria-label="Основная навигация">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="contact.html">Контакты</a>
+    </nav>
+    <form class="search-form" id="search-form" role="search">
+      <label class="sr-only" for="search-input">Поиск направлений</label>
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input id="search-input" name="q" type="search"
+        placeholder="Пляжи, храмы, страны…" maxlength="100" autocomplete="off">
+      <button class="search-submit" type="submit">Поиск</button>
+      <button class="search-clear" type="button" id="clear-button">Сбросить</button>
+    </form>
+  </div>
+</header>
   <main id="main" class="about-page">
     <section class="about-intro">
       <div class="about-copy"><p class="eyebrow">О НАС / ABOUT US</p><h1>Любопытство —<br>лучший <em>компас.</em></h1><p class="lead">Мы верим, что путешествие начинается не с билета, а с желания увидеть что-то новое.</p><p>TravelBloom — учебное веб-приложение для поиска идей путешествий. Мы собрали пляжи, храмы и города в одном месте, чтобы первый шаг к новому маршруту был простым.</p><p>Выберите настроение, введите ключевое слово и познакомьтесь с направлением: фотографией, коротким описанием и местом на карте.</p><a class="text-link" href="index.html#discover">Открыть направления <span aria-hidden="true">↗</span></a></div>

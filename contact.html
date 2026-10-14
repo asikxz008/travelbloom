@@ -2,7 +2,29 @@
 <html lang="ru">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Свяжитесь с TravelBloom с помощью формы обратной связи."><title>Контакты — TravelBloom</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><script src="app.js" defer></script></head>
 <body data-page="contact">
-  <a class="skip-link" href="#main">Перейти к содержимому</a><header id="site-header"></header>
+  <a class="skip-link" href="#main">Перейти к содержимому</a><header id="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="index.html" aria-label="TravelBloom — главная">
+      <img src="favicon.svg" width="34" height="34" alt="">
+      <span>Travel<span class="brand-light">Bloom</span><span class="brand-dot">.</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false"
+      aria-controls="main-nav" aria-label="Открыть меню">☰</button>
+    <nav id="main-nav" aria-label="Основная навигация">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="contact.html">Контакты</a>
+    </nav>
+    <form class="search-form" id="search-form" role="search">
+      <label class="sr-only" for="search-input">Поиск направлений</label>
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input id="search-input" name="q" type="search"
+        placeholder="Пляжи, храмы, страны…" maxlength="100" autocomplete="off">
+      <button class="search-submit" type="submit">Поиск</button>
+      <button class="search-clear" type="button" id="clear-button">Сбросить</button>
+    </form>
+  </div>
+</header>
   <main id="main" class="contact-page">
     <section class="contact-copy"><p class="eyebrow">КОНТАКТЫ / CONTACT US</p><h1>Каждое открытие<br>начинается с <em>«привет».</em></h1><p class="lead">Есть идея, вопрос или любимое место?<br>Расскажите нам о нём.</p><div class="contact-visual"><img src="bora-bora.jpg" alt="Бирюзовая лагуна и гора на острове Бора-Бора"><span>До новых берегов <span aria-hidden="true">↗</span></span></div></section>
     <section class="contact-panel" aria-labelledby="form-title"><p class="eyebrow">ДАВАЙТЕ ПОГОВОРИМ</p><h2 id="form-title">Напишите нам</h2><p class="form-intro">Заполните форму, чтобы подготовить сообщение.</p>
